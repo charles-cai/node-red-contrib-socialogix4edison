@@ -110,7 +110,7 @@ function useUpm() {
  * upm library
  */
 function useLcd() {
-    var lcd = require('./lcd');
+    var lcd = require('./i2c_lcd');
     var display = new lcd.LCD(0);
 
     display.setColor(0, 60, 255);
@@ -139,7 +139,7 @@ module.exports = function(RED) {
     function GroveRGBLCD(config) {
         var y = parseInt(config.y || 0);
                 
-        var lcd = require('./rgblcd');
+        var lcd = require('./i2clcd');
         var display = new lcd.LCD(0);
         
         RED.nodes.createNode(this, config);
@@ -179,6 +179,6 @@ module.exports = function(RED) {
         });
     }
 
-    RED.nodes.registerType("grove-rgblcd", GroveRGBLC);
+    RED.nodes.registerType("grove-rgblcd", GroveRGBLCD);
 }
 
