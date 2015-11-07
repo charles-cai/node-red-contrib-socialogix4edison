@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/charles-cai/node-red-contrib-soialogix_edison_rgblcd.git"
+    "url": "https://github.com/charles-cai/node-red-contrib-socialogix_edison_rgblcd.git"
   },
   "keywords": [
     "iot",
@@ -31,12 +31,12 @@
   "author": "charles-cai",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/charles-cai/node-red-contrib-soialogix_edison_rgblcd/issues"
+    "url": "https://github.com/charles-cai/node-red-contrib-socialogix_edison_rgblcd/issues"
   },
-  "homepage": "https://github.com/charles-cai/node-red-contrib-soialogix_edison_rgblcd",
+  "homepage": "https://github.com/charles-cai/node-red-contrib-socialogix_edison_rgblcd",
   "node-red": {
       "nodes": {
-          "edison-grove-rgblcd": "edison-grove-rgblcd"
+          "grove-rgblcd": "grove-rgblcd.js"
       }
   }
 }
