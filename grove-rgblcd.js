@@ -61,7 +61,7 @@ else {
  * Rotate through a color pallette and display the
  * color of the background as text
  */
-function rotateColors(display) {
+/*function rotateColors(display) {
     var red = 0;
     var green = 0;
     var blue = 0;
@@ -87,13 +87,14 @@ function rotateColors(display) {
     }, 1000);
 }
 
-
+*/
 
 /*s
  * Use the upm library to drive the two line display
  *
  * Note that this does not use the "lcd.js" code at all
  */
+/*
 function useUpm() {
     var lcd = require('jsupm_i2clcd');
     var display = new lcd.Jhd1313m1(0, 0x3E, 0x62);
@@ -103,12 +104,13 @@ function useUpm() {
     display.write('more text');
     rotateColors(display);
 }
-
+*/
 /**
  * Use the hand rolled lcd.js code to do the
  * same thing as the previous code without the
  * upm library
  */
+/*
 function useLcd() {
     var lcd = require('./i2c_lcd');
     var display = new lcd.LCD(0);
@@ -129,29 +131,35 @@ function useLcd() {
     });
 }
 
-
+*/
 
 
 module.exports = function(RED) {
-    var m = require('mraa');
+    //var m = require('mraa');
     //console.log("BOARD :",m.getPlatformName());
 
     function GroveRGBLCD(config) {
-        var y = parseInt(config.y || 0);
-                
-        var lcd = require('./i2clcd');
+        //node.log(config);
+        var row = parseInt(config.row || 0);  // y 
+        var col = parseInt(config.col || 0);  // x
+        var color = config.color; // TODO
+
+        var lcd = require('./i2c_lcd');
         var display = new lcd.LCD(0);
         
         RED.nodes.createNode(this, config);
         
         var node = this;
         this.on('input', function(msg) {
-            //msg.payload = msg.payload;
 
-            display.setColor(255, 255, 255);
-            display.setCursor(0, y);
-            display.write(msg.payload);
-            
+            display.setColor(255, 255, 255); // TODO: converting from Color #RRGBBB
+            display.setCursor(row, col);
+           
+            // var message = msg.payload || "";
+            // message = (typeof message) == "string" ? message : message.toString();
+            var message = JSON.stringify(msg.payload);
+ 
+            display.write(message);
             // node.send(msg);
         });
  

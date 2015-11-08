@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-socialogix4edison",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Node-RED nodes to support a few Grove Sensors for Intel Edison Arduino Board",
   "dependencies": {
      "q": "latest"

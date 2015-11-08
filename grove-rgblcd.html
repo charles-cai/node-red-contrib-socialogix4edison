@@ -16,13 +16,14 @@
 
 <script type="text/javascript">
     RED.nodes.registerType('grove-rgblcd',{
-        category: 'Socialogix | Intel Edison',
+        category: 'socialogix_edison',
         color: '#87A980',
-        paletteLabel: 'grove rgblcd',
+        paletteLabel: 'rgblcd',
         defaults: {
             name: {value:"Grove RGB LCD"},
-            x: {value:"0", required: true},
-            y: {value:"0", required: true}
+            col: {value:"0", required: true},
+            row: {value:"0", required: true},
+            color: {value: "#FFFFFF", required: false}
         },
         inputs:1,
         outputs:0,
@@ -38,18 +39,22 @@
 
 <script type="text/x-red" data-template-name="grove-rgblcd">
     <div class="form-row">
-        <label for="node-input-x"><i class="fa fa-tag"></i>X Position</label>
-        <input type="text" id="node-input-x" placeholder="0" style="width: 250px;">    
+        <label for="node-input-col"><i class="fa fa-arrowis-h"></i> Starting Column </label>
+        <input type="text" id="node-input-col" placeholder="0" style="width: 250px;">    
     </div>
     <div class="form-row">
-        <label for="node-input-y"><i class="fa fa-tag"></i>Y Position</label>
-        <input type="text" id="node-input-y" placeholder="0" style="width: 250px;">    
+        <label for="node-input-row"><i class="fa fa-arrows-v"></i> Starting Row </label>
+        <input type="text" id="node-input-row" placeholder="0" style="width: 250px;">    
     </div>
     <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name </label>
         <input type="text" id="node-input-name" placeholder="Name" style="width: 250px;">
     </div>
-    <div class="form-tips">Board : <span id="type-tip">n/a</span><br/>mraa version : <span id="ver-tip">n/a</span></div>
+    <div class="form-row">
+        <label for="node-input-color"><i class="fa fa-tachometer"></i> RGB Background Color</label>
+        <input type="text" id="node-input-color" placeholder="Name" style="width: 250px;">
+    </div>
+     <div class="form-tips">Board : <span id="type-tip">n/a</span><br/>mraa version : <span id="ver-tip">n/a</span></div>
 </script>
 
 <script type="text/x-red" data-help-name="grove-rgblcd">
